@@ -1,0 +1,36 @@
+<TEMPLATE APPNAME="123FLASHMENU" VER_NUMBER="2" VER_LOWNUMBER="2" TYPE="1" SWF_NAME="diamond" SUB_LEVEL="1" CATALOG="6" SWF_SHOWNAME="diamond" WIDTH="990" HEIGHT="27" BGCOLOR="clWhite" FLASHBGCOLOR="clWhite" TRANSPARENT="false" AUTOSIZE="true">
+	<GROUP_ATTRIBUTE>
+		<PARAM ID="1" DF_VALUE="new item"/>
+		<PARAM ID="2" DF_VALUE=""/>
+		<PARAM ID="3" DF_VALUE="_blank,_parent,_self,_top"/>
+	</GROUP_ATTRIBUTE>
+	<GROUP_MENU>
+		<PARAM ID="1" DF_VALUE="110"/>
+		<PARAM ID="2" DF_VALUE="25"/>
+		<PARAM ID="3" DF_VALUE="0"/>
+		<PARAM ID="4" DF_VALUE="verdana"/>
+		<PARAM ID="5" DF_VALUE="14"/>
+		<PARAM ID="6" DF_VALUE="clYellow"/>
+		<PARAM ID="7" DF_VALUE="false"/>
+		<PARAM ID="8" DF_VALUE="center,left,right"/>
+		<PARAM ID="9" DF_VALUE="0"/>
+		<PARAM ID="10" DF_VALUE="2"/>
+		<PARAM ID="11" DF_VALUE="true"/>
+		<PARAM ID="14" DF_VALUE="clActiveCaption"/>
+		<PARAM ID="16" DF_VALUE="diamond.mp3"/>
+		<PARAM ID="17" DF_VALUE="false"/>
+		<PARAM ID="150" DF_VALUE="false"/>
+	</GROUP_MENU>
+	<GROUP_SIZE>
+		<PARAM ID="140" DF_VALUE="990"/>
+		<PARAM ID="141" DF_VALUE="27"/>
+		<PARAM ID="142" DF_VALUE="true"/>
+	</GROUP_SIZE>
+	<GROUP_PAGE>
+		<PARAM ID="143" DF_VALUE="clWhite"/>
+		<PARAM ID="144" DF_VALUE="clWhite"/>
+		<PARAM ID="145" DF_VALUE="false"/>
+	</GROUP_PAGE>
+	<MENU>
+		<item name="หน้าแรก" url="doc.php?d=home" target="frame" callback="onClick"/><item name="สินค้า" url="product.php" target="frame" callback="onClick"/><item name="โปรโมชั่น" url="promotion.php" target="frame" callback="onClick"/><item name="ข้อมูลร้านค้า" url="doc.php?d=data" target="frame" callback="onClick"/><item name="เงื่อนไข&amp;ข้อตกลง" url="doc.php?d=term" target="frame" callback="onClick"/><item name="ชำระค่าสินค้า" url="checkout.php" target="frame" callback="onClick"/><item name="แจ้งการโอนเงิน" url="pay.php" target="frame" callback="onClick"/><item name="ตรวจสอบสถานะ" url="check.php" target="frame" callback="onClick"/><item name="ติดต่อร้านค้า" url="contact.php" target="frame" callback="onClick"/></MENU>
+</TEMPLATE>

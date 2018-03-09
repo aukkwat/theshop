@@ -1,0 +1,95 @@
+<? 
+@session_start();
+if ($_SESSION["admin"] != "admin") {    		  						
+	echo "<meta http-equiv='refresh' content='0;URL=login.php'>";die;
+}
+include "../config.php"; 
+$sql="select * from config"; 
+$result=mysql_db_query($_dbname,$sql);
+while($record=mysql_fetch_array($result)) {
+	$title=$record[title];
+	$metatag=$record[metatag];
+	$metadesc=$record[metadesc];
+	$logo=$record[logo];
+}
+?>
+<html>
+<head>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta http-equiv="Page-Enter" content="revealTrans(Duration=2,Transition=23)">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="Somsak2004">
+<meta name="description" content="<? echo $metadesc; ?>">
+<meta name="keywords" content="<? echo $metatag; ?>">
+<script type="text/javascript" src="../highslide/highslide.js"></script>
+<script type="text/javascript">
+    hs.graphicsDir = '../highslide/graphics/';
+</script>
+<title><? echo $title; ?></title>
+<LINK HREF="style.css" REL="stylesheet" TYPE="text/css">
+</head>
+<body bgcolor="#C0C0C0">
+<?
+   $act= $_GET['act'];
+   $id=$_GET['id'];
+   if ($act=="delete")
+   {
+           $sql5 = "DELETE  FROM cat_product  WHERE id='$id' ";
+           $dbquery = mysql_query( $sql5);
+           echo "<meta http-equiv='refresh' content='0;URL=$PHPSELF?act='>";
+   }
+if ($act=="new")
+{
+            $sql7 = "INSERT INTO cat_product (id,name,pic) VALUES ('','XXXXXXXX','nopic.jpg')  ";
+            $dbquery = mysql_query( $sql7);
+            echo "<meta http-equiv='refresh' content='0;URL=$PHPSELF?act='>";
+}
+?>
+
+<p align="center"><u><font size="5">แก้ไขหมวดสินค้า</font>
+</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<FORM action="<? echo "$PHPSELH?act=new";?>" method="POST">
+<input type="submit" value="กดปุ่มนี้สำหรับเพิ่มหมวดสินค้าใหม่" name="B1"></p>
+</FORM>
+
+
+<table border="1" width="100%" id="table1">
+	<tr>
+		<td width="76" align="center" bgcolor="#0000FF"><font color="#FFFF00">
+		<b>รหัส</b></font></td>
+		<td width="574" align="center" bgcolor="#0000FF"><font color="#FFFF00">
+		<b>ชื่อหมวดสินค้า</b></font></td>
+		<td width="259" align="center" bgcolor="#0000FF"><font color="#FFFF00">
+		<b>รูปภาพ</b></font></td>
+		<td align="center" bgcolor="#0000FF"><font color="#FFFF00"><b>ลบ</b></font></td>
+	</tr>
+<?
+$sql="select * from cat_product ORDER BY ID"; 
+$result=mysql_db_query($_dbname,$sql);
+while($record=mysql_fetch_array($result)) {
+	$id=$record[id];
+	$name=$record[name];
+	$pic=$record[pic];
+echo"
+	<tr>
+		<td width=\"76\" align=\"center\"><b>$id</b></td>
+		<td width=\"574\" align=\"center\"><b>
+		<a href=\"edit_cat.php?id=$id\" title=\"ไปแก้ไขหมวดสินค้ารหัส$id\"><font size=\"3\">$name</font></a></b></td>
+		<td width=\"259\" align=\"center\"><b>
+
+        <a href=\"../images/products/$pic\" class=\"highslide\" onclick=\"return hs.expand(this)\">
+		<img border=\"0\" src=\"../images/products/$pic\"  width=\"100\" height=\"75\" align=\"left\"  title=\"คลิ๊กเพื่อดูภาพปกติของ <?=$pic?>\"></a>
+		
+		</b></td>
+		<td align=\"center\"><b>
+		<a href=\"$PHPSELF?act=delete&id=$id\">
+		<img border=\"0\" src=\"images/ed_delete.gif\" width=\"18\" height=\"18\"></a></b></td>
+	</tr>";
+}
+	?>
+</table>
+<?include"../foot.php";?>
+<? mysql_close($conn);  ?>
+</body>
+</html>
+<!--- โปรแกรมโดย Somsak2004  -->
